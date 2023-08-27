@@ -1,0 +1,10 @@
+:~
+  title+'Calendar (Alpha)'
+  info+'Manage your time and coordinate with frens.'
+  color+0xad.d8e6
+  version+[1 0 0]
+  website+'https://github.com/niblyx-malnus/calendar'
+  license+'MIT'
+  base+'calendar'
+  glob-ames+[~bonwel-donmer-niblyx-malnus 0v4.09phc.dvgd9.ueder.400sg.676kp]
+==
