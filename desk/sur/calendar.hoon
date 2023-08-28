@@ -86,6 +86,7 @@
       [%default-role =role]
       [%publish b=?]
       [%role p=(each [=ship =role] ship)]
+      [%roles-scry scry=roles-scry]
   ==
 ::
 +$  meta-field

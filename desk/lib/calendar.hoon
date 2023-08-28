@@ -145,10 +145,8 @@
   |=  [=cid title=@t description=@t scry=(unit roles-scry)]
   ^-  _this
   ?>  (has-pool cid)
-  =|  =calendar
-  =?  scry.calendar  ?=(^ scry)  u.scry
-  =.  calendars  (~(put by calendars) cid calendar)
-  =/  core  (init:(abed:ca cid) title description)
+  =.  calendars  (~(put by calendars) cid *calendar)
+  =/  core  (init:(abed:ca cid) title description (fall scry *roles-scry) |)
   =.  this  (emil-cal abot:(do-updates:core [%role %& host.cid %admin]~))
   :: send calendar creation update on /home
   ::
@@ -346,14 +344,13 @@
     ~|("non-equivalent-updates" !!)
   ::
   ++  init
-    |=  [title=@t description=@t]
+    |=  [title=@t description=@t scry=roles-scry publish=?]
     ^-  _this
     =.  cal        *calendar :: initialize with bunt
-    %=  this
-      title.cal        title
-      description.cal  description
-      publish.cal      |
-    ==
+    =.  this       (do-update %title title)
+    =.  this       (do-update %description description)
+    =.  this       (do-update %roles-scry scry)
+    (do-update %publish publish)
   ::
   ++  spans-in-subdomain
     |=  [l=@da r=@da]
@@ -929,6 +926,7 @@
       %description    cal(description description.upd)
       %default-role   cal(default-role role.upd)
       %publish        cal(publish b.upd)
+      %roles-scry     cal(scry scry.upd)
       :: put / del
       ::
         %role

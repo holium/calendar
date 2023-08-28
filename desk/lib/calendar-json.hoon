@@ -395,6 +395,7 @@
       %default-role  s+role.fel
       %publish       b+b.fel
       %role          (cfel-role p.fel)
+      %roles-scry    (scry scry.fel)
     ==
   ::
   ++  cfel-role
@@ -468,7 +469,10 @@
   ++  calendar-update
     |=  upd=^calendar-update
     ^-  json
-    ?:  ?=(?(%title %description %default-role %publish %role) -.upd)
+    ?:  ?=  $?  %title    %description  %default-role
+                %publish  %role         %roles-scry
+            ==
+        -.upd
       (calendar-field upd)
     %+  frond  -.upd
     ?-  -.upd
