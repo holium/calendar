@@ -6,5 +6,5 @@
   website+'https://github.com/niblyx-malnus/calendar'
   license+'MIT'
   base+'calendar'
-  glob-ames+[~bonwel-donmer-niblyx-malnus 0v4.09phc.dvgd9.ueder.400sg.676kp]
+  glob-ames+[~niblyx-malnus 0v0]
 ==
